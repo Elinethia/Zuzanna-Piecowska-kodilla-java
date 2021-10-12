@@ -1,4 +1,4 @@
-package com.kodilla.testing.weather.stub;
+package com.kodilla.testing.weather.mock;
 
 
 import java.util.Map;
