@@ -1,10 +1,8 @@
 package com.kodilla.exception.test;
 
-import com.kodilla.exception.SecondChallange;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ExceptionHandlingTestSuite {
 
@@ -16,8 +14,17 @@ public class ExceptionHandlingTestSuite {
 
         //When&Then
         assertAll(
-                () -> assertThrows(Exception.class, () -> secondChallange.probablyWillThrowException(1, 0)),
-                () -> assertThrows(Exception.class, () -> secondChallange.probablyWillThrowException(3, 2))
+                () -> assertDoesNotThrow(() -> secondChallange.probablyWillThrowException(1.0, 0.0)),
+                () -> assertDoesNotThrow(() -> secondChallange.probablyWillThrowException(1.1, 2.0)),
+                () -> assertThrows(Exception.class, () -> secondChallange.probablyWillThrowException(0.999999999, 2.0)),
+                () -> assertThrows(Exception.class, () -> secondChallange.probablyWillThrowException(2.00000001, 2.0)),
+                () -> assertThrows(Exception.class, () -> secondChallange.probablyWillThrowException(2.0, 2.0)),
+                () -> assertDoesNotThrow(() -> secondChallange.probablyWillThrowException(1.99999999, 2.0)),
+                () -> assertThrows(Exception.class, () -> secondChallange.probablyWillThrowException(2.0, 7.0)),
+                () -> assertThrows(Exception.class, () -> secondChallange.probablyWillThrowException(2.1, 7.0)),
+                () -> assertThrows(Exception.class, () -> secondChallange.probablyWillThrowException(0.0, 7.0)),
+                () -> assertThrows(Exception.class, () -> secondChallange.probablyWillThrowException(5.0, 1.50000001)),
+                () -> assertThrows(Exception.class, () -> secondChallange.probablyWillThrowException(5.0, 1.49999999))
         );
     }
 }

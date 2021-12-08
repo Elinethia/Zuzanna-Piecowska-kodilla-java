@@ -1,10 +1,8 @@
 package com.kodilla.exception.test;
 
-import com.kodilla.exception.SecondChallange;
-
 public class ExceptionHandling {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
         SecondChallange secondChallange = new SecondChallange();
 
